@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        * {
+            color: white;
+            font-family: monospace;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        body {
+            background: black;
+            font-family: monospace;
+            padding: 4rem;
+        }
+
+        .input {
+            appearance: none;
+            -moz-appearance: none;
+            outline: none;
+            border: none;
+            background: transparent;
+            caret: underscore;
+        }
+
+        div {
+            margin-top: 0.5rem;
+        }
+    </style>
+
+</head>
+<body>
+    <dialog><p>Enter your username</p></dialog>
+    <span class="username"> Ready?_ </span>
+    <input type="text" class="input" autofocus>
+
+    <pre>
+        ToDo List:
+        # Add option to get username and store it in local storage
+        # Add support for themes, preferable from CLI itself or maybe GUI
+        # More sites and functions
+    </pre>
+</body>
+<script>
+    const inputField = document.querySelector('.input');
+    const outputArea = document.body; 
+
+    inputField.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        var userInput = inputField.value.toLowerCase();
+        inputField.value = '';
+
+        query(userInput);
+        }
+    });
+
+    function query(userInput) {
+        var output;
+        var url;
+
+        switch (userInput) {
+            case 'sos':
+
+                break;
+
+            case 'help':
+                
+                break;
+
+            case 'list':
+                output = 'List of supported function calls: time, date, bookmarks*, history*, <br> List of supported sites: bing, duckduckgo, google, wikipedia, x, yahoo, youtube <br> *only works on Chromium based browsers'
+                break;
+
+            case 'time':
+                const time = new Date();
+                output = "Present Day, Present Time > " + time.toLocaleString();
+                break;
+
+            case 'date':
+                const date = new Date();
+                output = "Today's Date > " + date.toDateString();
+                break;
+
+            case 'google':
+                url = 'https://google.com';
+                output = window.open(url, "_blank");
+                break;
+        
+            case 'yahoo':
+                url = 'https://yahoo.com';
+                output = window.open(url, "_blank");
+                break;
+
+            case 'youtube':
+                url ='https://youtube.com';
+                output = window.open(url, "_blank");                
+                break;
+        
+            case 'bing':
+                url = 'https://bing.com';
+                output = window.open(url, "_blank");
+                break;
+        
+            case 'duck':
+            case 'duckduckgo':
+                url = 'https://duckduckgo.com';
+                output = window.open(url, "_blank");
+                break;
+
+            case 'x':
+            case 'twitter':
+            case 'xitter':
+                url ='https://x.com';
+                output = window.open(url, "_blank");                
+                break;
+        
+            case 'wikipedia':
+            case 'wiki':
+                url = 'https://en.wikipedia.org'
+                output = window.open(url, '_blank');
+                break;
+
+            case 'history':
+                url = 'chrome://history'
+                output = window.open(url, '_blank');
+                break;
+            
+            case 'bookmarks':
+                url = 'chrome://bookmarks'
+                output = window.open(url, '_blank');
+                break;
+
+            case 'sneed':
+                output = "The sign is a subtle joke. The shop is called \"Sneed's Feed & Seed\", where \"feed\" and \"seed\" both end in the sound \"-eed\", thus rhyming with the name of the owner, Sneed. The sign says that the shop was \"Formerly Chuck's\", implying that the two words beginning with \"F\" and \"S\" would have ended with \"-uck\", rhyming with \"Chuck\". So, when Chuck owned the shop, it would have been called \"Chuck's Feeduck and Seeduck\".";
+                break;
+
+            case 'chuck':
+                output = "That command is deprecated, consider using \'sneed\'.";
+                break;
+
+            default:
+                output = "That command is not supported. Type list to view all supported commands."
+                break;
+        }
+        display(output);
+    }
+
+    function display(output) {
+        var newOutput = document.createElement('div');
+        newOutput.innerHTML = output;
+        outputArea.appendChild(newOutput);
+    }
+</script>
+</html>
