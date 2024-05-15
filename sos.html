@@ -34,7 +34,8 @@
 <body>
     <dialog><p>Enter your username</p></dialog>
     <span class="username"> Ready?_ </span>
-    <input type="text" class="input" autofocus>
+    <input type="text" class="input" autofocus required>
+    <div id="outputarea"></div>
 
     <pre>
         ToDo List:
@@ -45,11 +46,11 @@
 </body>
 <script>
     const inputField = document.querySelector('.input');
-    const outputArea = document.body; 
+    const outputArea = document.getElementById('outputarea'); 
 
     inputField.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
-        var userInput = inputField.value.toLowerCase();
+        var userInput = inputField.value.toLowerCase().trim();
         inputField.value = '';
 
         query(userInput);
@@ -65,26 +66,35 @@
 
                 break;
 
-            case 'help':
-                
-                break;
-
             case 'list':
-                output = 'List of supported function calls: time, date, bookmarks*, history*, <br> List of supported sites: bing, duckduckgo, google, wikipedia, x, yahoo, youtube <br> *only works on Chromium based browsers'
+                output = 'List of supported function calls: time, date, ip, clrscr, image search, bookmarks*, history*, <br> List of supported sites: bing, duckduckgo, github, gmail, google, pinterest, translate, wikipedia, x, yahoo, youtube <br> *only works on Chromium based browsers'
+                display(output);
                 break;
 
             case 'time':
                 const time = new Date();
                 output = "Present Day, Present Time > " + time.toLocaleString();
+                display(output);
                 break;
 
             case 'date':
                 const date = new Date();
                 output = "Today's Date > " + date.toDateString();
+                display(output);
+                break;
+
+            case 'ip':
+                url = 'https://www.whatismyip.com/';
+                output = window.open(url, '_blank');
                 break;
 
             case 'google':
                 url = 'https://google.com';
+                output = window.open(url, "_blank");
+                break;
+
+            case 'gmail':
+                url = 'https://mail.google.com';
                 output = window.open(url, "_blank");
                 break;
         
@@ -122,35 +132,87 @@
                 output = window.open(url, '_blank');
                 break;
 
-            case 'history':
-                url = 'chrome://history'
-                output = window.open(url, '_blank');
+            case 'image':
+            case 'imagesearch':
+            case 'image search':
+                url = 'https://yandex.com/images/';
+                output = window.open(url, "_blank");
                 break;
-            
-            case 'bookmarks':
-                url = 'chrome://bookmarks'
+
+            case 'translate':
+                url ='https://translate.google.com/';
+                output = window.open(url, "_blank");                
+                break;
+        
+            case 'pinterest':
+                url = 'https://pinterest.com/'
                 output = window.open(url, '_blank');
                 break;
 
+            case 'github':
+                url = 'https://github.com'
+                output = window.open(url, '_blank');
+                break;
+    
+            case 'history':
+                if(navigator.userAgent.includes('Firefox')) {
+                    output = "This function isn't supported on Firefox based browsers."
+                    display(output);
+                    break;
+                }
+                else {
+                    url = 'chrome://history'
+                    output = window.open(url, '_blank');
+                    break;
+                }
+            
+            case 'bookmarks':
+                if(navigator.userAgent.includes('Firefox')) {
+                    output = "This function isn't supported on Firefox based browsers."
+                    display(output);
+                    break;
+                }
+                else {
+                    url = 'chrome://bookmarks'
+                    output = window.open(url, '_blank');
+                    break;
+                }
+
             case 'sneed':
                 output = "The sign is a subtle joke. The shop is called \"Sneed's Feed & Seed\", where \"feed\" and \"seed\" both end in the sound \"-eed\", thus rhyming with the name of the owner, Sneed. The sign says that the shop was \"Formerly Chuck's\", implying that the two words beginning with \"F\" and \"S\" would have ended with \"-uck\", rhyming with \"Chuck\". So, when Chuck owned the shop, it would have been called \"Chuck's Feeduck and Seeduck\".";
+                display(output);
                 break;
 
             case 'chuck':
                 output = "That command is deprecated, consider using \'sneed\'.";
+                display(output);
+                break;
+
+            case '':
+                output = "Your input is empty";
+                display(output);
+                break;
+            
+            case 'clear':
+            case 'clrscr':
+                clearDisplay();
                 break;
 
             default:
-                output = "That command is not supported. Type list to view all supported commands."
+                output = "That command is not supported. Type list to view all supported commands.";
+                display(output);
                 break;
         }
-        display(output);
     }
 
     function display(output) {
         var newOutput = document.createElement('div');
         newOutput.innerHTML = output;
         outputArea.appendChild(newOutput);
+    }
+
+    function clearDisplay() {
+        outputArea.innerHTML = "";
     }
 </script>
 </html>
