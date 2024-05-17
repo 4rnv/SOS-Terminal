@@ -2,14 +2,20 @@
 <html>
 <head>
     <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <style>
         * {
             color: white;
             font-family: monospace;
             font-size: 1rem;
             letter-spacing: 2px;
+            transition: all 0.2s;
         }
 
+        pre {
+            letter-spacing: -1px;
+        }
         body {
             background: black;
             font-family: monospace;
@@ -32,11 +38,9 @@
 
 </head>
 <body>
-    <dialog><p>Enter your username</p></dialog>
-    <span class="username"> Ready?_ </span>
+    <span class="username">Anonymous</span>
     <input type="text" class="input" autofocus required>
     <div id="outputarea"></div>
-
     <pre>
         ToDo List:
         # Add option to get username and store it in local storage
@@ -67,7 +71,7 @@
                 break;
 
             case 'list':
-                output = 'List of supported function calls: time, date, ip, clrscr, image search, bookmarks*, history*, <br> List of supported sites: bing, duckduckgo, github, gmail, google, pinterest, translate, wikipedia, x, yahoo, youtube <br> *only works on Chromium based browsers'
+                output = 'List of supported function calls: time, date, ip, clrscr, image search<br> List of supported sites: bing, duckduckgo, github, gmail, google, pinterest, translate, wikipedia, x, yahoo, youtube';
                 display(output);
                 break;
 
@@ -153,30 +157,6 @@
                 url = 'https://github.com'
                 output = window.open(url, '_blank');
                 break;
-    
-            case 'history':
-                if(navigator.userAgent.includes('Firefox')) {
-                    output = "This function isn't supported on Firefox based browsers."
-                    display(output);
-                    break;
-                }
-                else {
-                    url = 'chrome://history'
-                    output = window.open(url, '_blank');
-                    break;
-                }
-            
-            case 'bookmarks':
-                if(navigator.userAgent.includes('Firefox')) {
-                    output = "This function isn't supported on Firefox based browsers."
-                    display(output);
-                    break;
-                }
-                else {
-                    url = 'chrome://bookmarks'
-                    output = window.open(url, '_blank');
-                    break;
-                }
 
             case 'sneed':
                 output = "The sign is a subtle joke. The shop is called \"Sneed's Feed & Seed\", where \"feed\" and \"seed\" both end in the sound \"-eed\", thus rhyming with the name of the owner, Sneed. The sign says that the shop was \"Formerly Chuck's\", implying that the two words beginning with \"F\" and \"S\" would have ended with \"-uck\", rhyming with \"Chuck\". So, when Chuck owned the shop, it would have been called \"Chuck's Feeduck and Seeduck\".";
@@ -184,7 +164,7 @@
                 break;
 
             case 'chuck':
-                output = "That command is deprecated, consider using \'sneed\'.";
+                output = "This command is deprecated, consider using \'sneed\'.";
                 display(output);
                 break;
 
@@ -214,5 +194,28 @@
     function clearDisplay() {
         outputArea.innerHTML = "";
     }
+
+    document.querySelector('.input').addEventListener('input', function(event) {
+            const value = event.target.value;
+            if (value === '--su') {
+                event.target.value = ''; // Clear the input field
+                var username = prompt('Enter your username:');
+                if (username) {
+                    limit = 20;
+                    username = username.trim().substring(0, limit);
+                    localStorage.setItem('SOS-Terminal-username', username);
+                    displayUsername();
+                }
+            }
+        });
+
+        function displayUsername() {
+            const storedUsername = localStorage.getItem('SOS-Terminal-username');
+            if (storedUsername) {
+                document.querySelector('.username').textContent = `C://${storedUsername} >`;
+            }
+        }
+
+        window.onload = displayUsername;
 </script>
 </html>
