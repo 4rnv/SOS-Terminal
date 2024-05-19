@@ -20,10 +20,6 @@
             src: url(./fonts/borland.ttf);
         }
 
-        * {
-            transition: all 0.2s;
-        }
-
         .borland {
             background: blue;
             color: yellow;
@@ -44,15 +40,19 @@
             font-style: italic;
         }
 
-        .default {
+        .cyber {
             background: black;
             color: lime;
         }
-        
-        pre {
-            letter-spacing: -1px;
+
+        .amoled {
+            background: black;
+            color: #bbb;
         }
+
         body {
+            background: black;
+            color: white;
             letter-spacing: 2px;
             font-family: 'deja vu sans mono', monospace;
             font-size: 1rem;
@@ -86,8 +86,9 @@
     <div id="outputarea"></div>
     <pre>
         ToDo List:
-        # Find more appropriate themes, and theme names
-        # More sites
+        # Weather command
+        # Quote of the day
+        # Task list
     </pre>
 </body>
 <script>
@@ -114,7 +115,7 @@
 
             case 'list':
                 output = `
-                List of supported function calls: time, date, ip, clrscr, image search. To set username, use --su; to set theme, use --st; to remove username type --logout. List of supported sites: bing, duckduckgo, github, gmail, google, pinterest, translate, wikipedia, x, yahoo, youtube
+                List of supported function calls: time, date, ip, clrscr, image search. To set username, use --su; to set theme, use --st; to remove username type --logout. List of supported sites: amazon, bing, duckduckgo, github, gmail, google, pinterest, translate, wikipedia, x, yahoo, youtube
                 `;
                 display(output);
                 break;
@@ -168,8 +169,8 @@
                 break;
 
             case 'x':
-            case 'twitter':
             case 'xitter':
+            case 'twitter':
                 url ='https://x.com';
                 output = window.open(url, "_blank");                
                 break;
@@ -177,6 +178,11 @@
             case 'wikipedia':
             case 'wiki':
                 url = 'https://en.wikipedia.org'
+                output = window.open(url, '_blank');
+                break;
+
+            case 'amazon':
+                url = 'https://amazon.com';
                 output = window.open(url, '_blank');
                 break;
 
@@ -241,7 +247,7 @@
         outputArea.appendChild(newOutput);
         var i = 0;
         var txt = output;
-        var speed = 20;
+        var speed = 10;
 
         function typeWriter() {
             if (i < txt.length) {
@@ -272,14 +278,14 @@
             }
             else if (value === '--st' || value === '-st') {
                 event.target.value = '';
-                var theme = prompt('Select your theme: lain,borland,pastel,default');
+                var theme = prompt('Select your theme: lain,borland,pastel,cyber,amoled');
                 theme = theme.toLowerCase().trim();
                 switchTheme(theme);
             }
         });
 
         function switchTheme(theme) {
-            const validThemes = ['borland', 'lain', 'pastel', 'default'];
+            const validThemes = ['borland', 'lain', 'pastel', 'cyber', 'amoled'];
             if (validThemes.includes(theme)) {
                 const currentTheme = localStorage.getItem('SOS-Terminal-theme');
                 if (currentTheme) {
