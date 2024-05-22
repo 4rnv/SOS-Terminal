@@ -29,16 +29,16 @@ You can open a site by simply typing it in the terminal. Currently supported sit
 
 You can add a username to the terminal. The default value is anonymous. To add a username type `--su` and enter your username in the prompt window.
 
-Since this is a purely frontend project, the username is stored in your browser's local storage and is not accessible elsewhere. It will remain stored even if you reload or close the browser. To remove your username and go back to 'anonymous', type `--logout`
+Since this is a purely frontend project, the username is stored in your browser's local storage and is not accessible elsewhere. It will remain stored even if you reload or close the browser. To remove your username and go back to 'anonymous', type `--logout`. To change your username, simply type `--su` again.
 
 ### Themes
 
 You can also use different themes to spruce up your experience. To set a theme use `--st`. Then type the theme name from the visible options Currently supported themes are:
 
 - borland (recreates the look of borland programs like Turbo C)
-- cyber (dark, matrix-ish)
+- cyber (dark, Matrix-ish)
 - w95 (Windows 95 theme)
-- lain (no explanation required)
+- lain (inspired by Navi)
 - sos (light theme)
 - pastel (light pink, red text)
 - amoled (true dark, dim text)
