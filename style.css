@@ -1,0 +1,126 @@
+@font-face {
+    font-family: lain;
+    src: url(./fonts/lain.ttf);
+}
+
+@font-face {
+    font-family: 'deja vu sans mono';
+    src: url(./fonts/DejaVuSansMono.ttf);
+}
+
+@font-face {
+    font-family: borland;
+    src: url(./fonts/borland.ttf);
+}
+
+@font-face {
+    font-family: Windows95;
+    src: url(./fonts/W95FA.otf);
+}
+
+.sos {
+    background: white;
+    color: #da2d6f;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.sos > .username {
+    padding: 0.3rem;
+    border-radius: 1rem 0;
+    border: 4px solid #94c23e;
+    color: #32c5ef;
+}
+
+.borland {
+    background: blue;
+    color: yellow;
+    font-family: borland, monospace;
+    font-size: 2rem;
+    letter-spacing: normal;
+}
+
+.borland > .username {
+    background: cyan;
+    color: blue;
+}
+
+.lain {
+    background: #0a1e12;
+    color: #f5b0c1;
+    font-family: lain, monospace;
+}
+
+.lain > .username {
+    color: #d6c391;
+}
+
+.pastel {
+    background: pink;
+    color: #BE0A32;
+    font-style: italic;
+}
+
+.cyber {
+    background: black;
+    color: lime;
+}
+
+.amoled {
+    background: black;
+    color: #bbb;
+}
+
+.kyouma {
+    background: black;
+    color: #ff7648;
+    font-family: serif;
+}
+
+.purple {
+    background: #3E3575;
+}
+
+.w95 {
+    background: #008080;
+    border-top: 5vh solid #000080;
+    color: black;
+    padding: 1rem;
+    font-family: Windows95;
+}
+
+.w95 > *, .w95 > .input {
+    background: #c0c0c0;
+    padding: 1rem;
+    border: 4px solid lightgrey;
+    border-right: 4px solid #222222;
+    border-bottom: 4px solid #222222;
+}
+
+body {
+    background: black;
+    color: white;
+    letter-spacing: 2px;
+    font-family: 'deja vu sans mono', monospace;
+    font-size: 1rem;
+    padding: 4rem;
+}
+
+.input {
+    appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    caret-color: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    letter-spacing: inherit;
+    width: 50%;
+}
+
+div {
+    margin-top: 0.5rem;
+}
