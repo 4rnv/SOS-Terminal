@@ -53,7 +53,7 @@
         }
 
         .lain {
-            background: #0f0409;
+            background: #0a1e12;
             color: #f5b0c1;
             font-family: lain, monospace;
         }
@@ -82,6 +82,10 @@
             background: black;
             color: #ff7648;
             font-family: serif;
+        }
+
+        .purple {
+            background: #3E3575;
         }
 
         .w95 {
@@ -134,12 +138,12 @@
     <span class="username">Anonymous</span>
     <input type="text" class="input" autofocus required>
     <div id="outputarea"></div>
-    <!-- <pre>
-        ToDo List:
+    <!--
+        ToDo:
         # Weather command
         # Quote of the day
         # Task list
-    </pre> -->
+    -->
 </body>
 <script>
     const inputField = document.querySelector('.input');
@@ -329,14 +333,14 @@
             }
             else if (value === '--st' || value === '-st') {
                 event.target.value = '';
-                var theme = prompt('Select your theme: sos,borland,lain,pastel,cyber,amoled,kyouma,w95');
+                var theme = prompt('Select your theme: sos,borland,lain,pastel,cyber,amoled,kyouma,w95,purple');
                 theme = theme.toLowerCase().trim();
                 switchTheme(theme);
             }
         });
 
         function switchTheme(theme) {
-            const validThemes = ['sos','borland', 'lain', 'pastel', 'cyber', 'amoled', 'kyouma', 'w95'];
+            const validThemes = ['sos','borland', 'lain', 'pastel', 'cyber', 'amoled', 'kyouma', 'w95', 'purple'];
             if (validThemes.includes(theme)) {
                 const currentTheme = localStorage.getItem('SOS-Terminal-theme');
                 if (currentTheme) {
