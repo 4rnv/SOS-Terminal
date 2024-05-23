@@ -103,7 +103,7 @@ body {
     letter-spacing: 2px;
     font-family: 'deja vu sans mono', monospace;
     font-size: 1rem;
-    padding: 4rem;
+    padding: 3rem;
 }
 
 .input {
@@ -123,4 +123,18 @@ body {
 
 div {
     margin-top: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 2rem 1rem;
+    }
+
+    .input {
+        margin-top: 2rem;
+    }
+
+    .w95 {
+        padding: 2rem 0;
+    }
 }
