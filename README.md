@@ -51,12 +51,12 @@ You can also use different themes to spruce up your experience. To set a theme u
 
 ## Screenshots
 
-![](ss/ss (9).png)
-![](ss/ss (3).png)
-![](ss/ss (4).png)
-![](ss/ss (5).png)
-![](ss/ss (6).png)
-![](ss/ss (7).png)
-![](ss/ss (8).png)
-![](ss/ss (1).png)
-![](ss/ss (2).png)
+![](ss/ss(9).png)
+![](ss/ss(3).png)
+![](ss/ss(4).png)
+![](ss/ss(5).png)
+![](ss/ss(6).png)
+![](ss/ss(7).png)
+![](ss/ss(8).png)
+![](ss/ss(1).png)
+![](ss/ss(2).png)
