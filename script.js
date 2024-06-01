@@ -1,12 +1,59 @@
 const inputField = document.querySelector('.input');
     const outputArea = document.getElementById('outputarea'); 
 
-    inputField.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        var userInput = inputField.value.toLowerCase().trim();
-        inputField.value = '';
+    // inputField.addEventListener('keypress', function(event) {
+    // if (event.key === 'Enter') {
+    //     var userInput = inputField.value.toLowerCase().trim();
+    //     inputField.value = '';
 
-        query(userInput);
+    //     query(userInput);
+    //     }
+    // });
+
+    inputField.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            const userInput = inputField.value.toLowerCase().trim();
+            var SearchUrl;
+            if (userInput.startsWith('#g ')) {
+                const query = userInput.substring(3).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            } 
+            else if (userInput.startsWith('#y ')) {
+                const query = userInput.substring(3).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://search.yahoo.com/search?p=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            }
+            else if (userInput.startsWith('#yt ')) {
+                const query = userInput.substring(4).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            }
+            else if (userInput.startsWith('#a ')) {
+                const query = userInput.substring(3).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://www.amazon.com/s?k=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            }
+            else {
+                query(userInput);
+                inputField.value = '';
+            }
         }
     });
 
