@@ -50,6 +50,51 @@ const inputField = document.querySelector('.input');
                     inputField.value = '';
                 }
             }
+            else if (userInput.startsWith('#d ')) {
+                const query = userInput.substring(3).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            }
+            else if (userInput.startsWith('#br ')) {
+                const query = userInput.substring(4).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://search.brave.com/search?q=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            }
+            else if (userInput.startsWith('#b ')) {
+                const query = userInput.substring(3).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            }
+            else if (userInput.startsWith('#w ')) {
+                const query = userInput.substring(3).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            }
+            else if (userInput.startsWith('#r ')) {
+                const query = userInput.substring(3).trim();
+                console.log(query);
+                if (query) {
+                    SearchUrl = `https://old.reddit.com/search?q=${encodeURIComponent(query)}`;
+                    window.open(SearchUrl, '_blank');
+                    inputField.value = '';
+                }
+            }
             else {
                 query(userInput);
                 inputField.value = '';
@@ -91,34 +136,8 @@ const inputField = document.querySelector('.input');
                 output = window.open(url, '_blank');
                 break;
 
-            case 'google':
-                url = 'https://google.com';
-                output = window.open(url, "_blank");
-                break;
-
             case 'gmail':
                 url = 'https://mail.google.com';
-                output = window.open(url, "_blank");
-                break;
-        
-            case 'yahoo':
-                url = 'https://yahoo.com';
-                output = window.open(url, "_blank");
-                break;
-
-            case 'youtube':
-                url ='https://youtube.com';
-                output = window.open(url, "_blank");                
-                break;
-        
-            case 'bing':
-                url = 'https://bing.com';
-                output = window.open(url, "_blank");
-                break;
-        
-            case 'duck':
-            case 'duckduckgo':
-                url = 'https://duckduckgo.com';
                 output = window.open(url, "_blank");
                 break;
 
@@ -127,17 +146,6 @@ const inputField = document.querySelector('.input');
             case 'twitter':
                 url ='https://x.com';
                 output = window.open(url, "_blank");                
-                break;
-        
-            case 'wikipedia':
-            case 'wiki':
-                url = 'https://en.wikipedia.org'
-                output = window.open(url, '_blank');
-                break;
-
-            case 'amazon':
-                url = 'https://amazon.com';
-                output = window.open(url, '_blank');
                 break;
 
             case 'image':
@@ -197,7 +205,6 @@ const inputField = document.querySelector('.input');
 
     function display(output) {
         var newOutput = document.createElement('div');
-        //newOutput.innerHTML = output;
         outputArea.appendChild(newOutput);
         var i = 0;
         var txt = output;
