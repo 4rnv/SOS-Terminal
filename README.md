@@ -2,6 +2,11 @@
 
 Terminal-esque startpage with a bunch of useful features and cool themes.
 
+![](ss/ss(9).png)
+![](ss/ss(3).png)
+![](ss/ss(4).png)
+![](ss/ss(5).png)
+
 # Features
 
 You can open a site by simply typing it in the terminal. Currently supported site keywords:
@@ -21,6 +26,20 @@ You can open a site by simply typing it in the terminal. Currently supported sit
 - Youtube
 
 To view all keywords while in the terminal, type `list`
+
+## Search functions
+
+Search functions allow you to search the web from any search engine of your choice by specifying a keyword before your search. It is similar to Duckduckgo's !bangs feature. For example, typing `#br <query>` will return results for <query> from Brave Search. Similarly typing `#g <query>` will return results for <query> from Google. Current supported search functions:
+
+- #g (Google)
+- #y (Yahoo)
+- #yt (Youtube)
+- #b (Bing)
+- #br (Brave Search)
+- #d (Duckduckgo)
+- #w (Wikipedia)
+- #a (Amazon)
+- #r (Reddit)
 
 ## Other functions
 
@@ -51,10 +70,6 @@ You can also use different themes to spruce up your experience. To set a theme u
 
 ## Screenshots
 
-![](ss/ss(9).png)
-![](ss/ss(3).png)
-![](ss/ss(4).png)
-![](ss/ss(5).png)
 ![](ss/ss(6).png)
 ![](ss/ss(7).png)
 ![](ss/ss(8).png)
