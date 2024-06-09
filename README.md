@@ -29,7 +29,7 @@ To view all keywords while in the terminal, type `list`
 
 ## Search functions
 
-Search functions allow you to search the web from any search engine of your choice by specifying a keyword before your search. It is similar to Duckduckgo's !bangs feature. For example, typing `#br <query>` will return results for <query> from Brave Search. Similarly typing `#g <query>` will return results for <query> from Google. Current supported search functions:
+Search functions allow you to search the web from any search engine of your choice by specifying a keyword before your search. It is similar to Duckduckgo's !bangs feature. For example, typing `#br query` will return results for query from Brave Search. Similarly typing `#g query` will return results for query from Google. Current supported search functions:
 
 - #g (Google)
 - #y (Yahoo)
