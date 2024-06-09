@@ -114,7 +114,7 @@ const inputField = document.querySelector('.input');
 
             case 'list':
                 output = `
-                List of supported function calls: time, date, ip, clrscr, image search. To set username, use --su; to set theme, use --st; to remove username type --logout. List of supported sites: amazon, bing, duckduckgo, github, gmail, google, pinterest, translate, wikipedia, x, yahoo, youtube
+                List of supported function calls: time, date, ip, clrscr, image search. To set username, use --su; to set theme, use --st; to remove username type --logout. List of supported sites: amazon, bing, duckduckgo, github, gmail, google, linkedin, pinterest, translate, wikipedia, x, yahoo, youtube
                 `;
                 display(output);
                 break;
@@ -167,6 +167,11 @@ const inputField = document.querySelector('.input');
 
             case 'github':
                 url = 'https://github.com'
+                output = window.open(url, '_blank');
+                break;
+
+            case 'linkedin':
+                url = 'https://linkedin.com'
                 output = window.open(url, '_blank');
                 break;
 
