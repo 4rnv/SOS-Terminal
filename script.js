@@ -1,15 +1,5 @@
 const inputField = document.querySelector('.input');
     const outputArea = document.getElementById('outputarea'); 
-
-    // inputField.addEventListener('keypress', function(event) {
-    // if (event.key === 'Enter') {
-    //     var userInput = inputField.value.toLowerCase().trim();
-    //     inputField.value = '';
-
-    //     query(userInput);
-    //     }
-    // });
-
     inputField.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             const userInput = inputField.value.toLowerCase().trim();
@@ -114,8 +104,8 @@ const inputField = document.querySelector('.input');
 
             case 'list':
                 output = `
-                List of supported function calls: time, date, ip, clrscr, image search. To set username, use --su; to set theme, use --st; to remove username type --logout. List of supported sites: amazon, bing, duckduckgo, github, gmail, google, linkedin, pinterest, translate, wikipedia, x, yahoo, youtube. Search functions: #a, #b, #br, #d, #g, #r, #w, #y, #yt`;
-                display(output);
+                <li>Special functions: time, date, ip, clrscr, image search, quote.<li>Site keywords: amazon, bing, chatgpt, discord, duckduckgo, github, gmail, google, linkedin, pinterest, translate, wikipedia, x, yahoo, youtube.<li>Search functions: #a, #b, #br, #d, #g, #r, #w, #y, #yt<li>To set username, use --su.<li>To set theme, use --st.<li>To remove username type --logout.<li>Complete documentation @ <a href="https://github.com/4rnv/SOS-Terminal" target="_blank">https://github.com/4rnv/SOS-Terminal</a>`;
+                displayHTML(output);
                 break;
 
             case 'time':
@@ -160,17 +150,28 @@ const inputField = document.querySelector('.input');
                 break;
         
             case 'pinterest':
-                url = 'https://pinterest.com/'
+                url = 'https://pinterest.com/';
                 output = window.open(url, '_blank');
                 break;
 
             case 'github':
-                url = 'https://github.com'
+                url = 'https://github.com';
                 output = window.open(url, '_blank');
                 break;
 
             case 'linkedin':
-                url = 'https://linkedin.com'
+                url = 'https://linkedin.com';
+                output = window.open(url, '_blank');
+                break;
+
+            case 'discord':
+                url = 'https://discord.com/app';
+                output = window.open(url, '_blank');
+                break;
+
+            case 'chatgpt':
+            case 'gpt':
+                url = 'https://chatgpt.com/';
                 output = window.open(url, '_blank');
                 break;
 
@@ -182,6 +183,11 @@ const inputField = document.querySelector('.input');
             case 'chuck':
                 output = "This command is deprecated, consider using \'sneed\'.";
                 display(output);
+                break;
+
+            case 'quote':
+            case 'quotes':
+                quote();
                 break;
 
             case '':
@@ -225,6 +231,31 @@ const inputField = document.querySelector('.input');
         typeWriter();
     }
 
+    function displayHTML(output) {
+        var newOutput = document.createElement('div');
+        newOutput.innerHTML = output;
+        outputArea.appendChild(newOutput);
+    }
+
+    function quote() {
+        const options = {
+          headers: { "x-api-key": "oYAplzyZU8C3FkO2bW0ulQ==NFC4mjLdTlsvcJdx" },
+        };
+      
+        fetch("https://api.api-ninjas.com/v1/quotes?category=inspirational", options)
+          .then((response) => {
+            if (!response.ok) {
+              console.log("Response error")
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            display(data[0].quote);
+          })
+          .catch((err) => console.log(err));
+      }
+
     function clearDisplay() {
         outputArea.innerHTML = "";
     }
@@ -243,14 +274,14 @@ const inputField = document.querySelector('.input');
             }
             else if (value === '--st' || value === '-st') {
                 event.target.value = '';
-                var theme = prompt('Select your theme: sos,borland,lain,pastel,cyber,amoled,kyouma,w95,purple');
+                var theme = prompt('Select your theme: sos,borland,lain,pastel,cyber,amoled,congroo,w95,purple');
                 theme = theme.toLowerCase().trim();
                 switchTheme(theme);
             }
         });
 
         function switchTheme(theme) {
-            const validThemes = ['sos','borland', 'lain', 'pastel', 'cyber', 'amoled', 'kyouma', 'w95', 'purple'];
+            const validThemes = ['sos','borland', 'lain', 'pastel', 'cyber', 'amoled', 'congroo', 'w95', 'purple'];
             if (validThemes.includes(theme)) {
                 const currentTheme = localStorage.getItem('SOS-Terminal-theme');
                 if (currentTheme) {

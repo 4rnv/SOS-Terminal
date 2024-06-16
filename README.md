@@ -65,7 +65,7 @@ You can also use different themes to spruce up your experience. To set a theme u
 - sos (light theme)
 - pastel (light pink, red text)
 - amoled (true dark, dim text)
-- kyouma (dark, orange text)
+- congroo (dark, orange text)
 - purple (purple background, white text)
 
 ## Screenshots

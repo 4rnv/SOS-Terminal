@@ -71,7 +71,7 @@
     color: #bbb;
 }
 
-.kyouma {
+.congroo {
     background: black;
     color: #ff7648;
     font-family: serif;
@@ -106,6 +106,16 @@ body {
     padding: 3rem;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style-type: none;
+    padding: 0.4rem 0;
+}
+
 .input {
     appearance: none;
     -moz-appearance: none;
@@ -122,7 +132,7 @@ body {
 }
 
 div {
-    margin-top: 0.5rem;
+    margin-top: 0.8rem;
 }
 
 @media only screen and (max-width: 600px) {
