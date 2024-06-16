@@ -104,7 +104,7 @@ const inputField = document.querySelector('.input');
 
             case 'list':
                 output = `
-                <li>Special functions: time, date, ip, clrscr, image search, quote.<li>Site keywords: amazon, bing, chatgpt, discord, duckduckgo, github, gmail, google, linkedin, pinterest, translate, wikipedia, x, yahoo, youtube.<li>Search functions: #a, #b, #br, #d, #g, #r, #w, #y, #yt<li>To set username, use --su.<li>To set theme, use --st.<li>To remove username type --logout.<li>Complete documentation @ <a href="https://github.com/4rnv/SOS-Terminal" target="_blank">https://github.com/4rnv/SOS-Terminal</a>`;
+                <li>Special functions: time, date, ip, clrscr, image search, quote.<li>Site keywords: amazon, bing, chatgpt, discord, duckduckgo, github, gmail, google, linkedin, pinterest, translate, wikipedia, x, yahoo, youtube.<li>Search functions: #a, #b, #br, #d, #g, #r, #w, #y, #yt<li>To set username, use --su.<li>To set theme, use --st.<li>To remove username type --logout.<li>Complete documentation @ <a href="https://github.com/4rnv/SOS-Terminal" target='_blank'>https://github.com/4rnv/SOS-Terminal</a>`;
                 displayHTML(output);
                 break;
 
@@ -127,26 +127,31 @@ const inputField = document.querySelector('.input');
 
             case 'gmail':
                 url = 'https://mail.google.com';
-                output = window.open(url, "_blank");
+                output = window.open(url, '_blank');
                 break;
 
+            case 'yahoo':
+                url = 'https://mail.yahoo.com/';
+                output = window.open(url, '_blank');
+                break;
+                
             case 'x':
             case 'xitter':
             case 'twitter':
                 url ='https://x.com';
-                output = window.open(url, "_blank");                
+                output = window.open(url, '_blank');                
                 break;
 
             case 'image':
             case 'imagesearch':
             case 'image search':
                 url = 'https://yandex.com/images/';
-                output = window.open(url, "_blank");
+                output = window.open(url, '_blank');
                 break;
 
             case 'translate':
                 url ='https://translate.google.com/';
-                output = window.open(url, "_blank");                
+                output = window.open(url, '_blank');                
                 break;
         
             case 'pinterest':
